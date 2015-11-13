@@ -3,9 +3,46 @@
 <head>
 	<title>Account Details:</title>
 </head>
-	<body>
 
-		<form  method="get">
+	<body>
+	<?php
+		if(isset($_POST['country'])){
+			$a = "";
+			$a = $a."Name: ";
+			$a = $a.$_POST["name"];
+			$a = $a."\n";
+			
+			$a = $a."User Name: ";
+			$a = $a.$_POST["uName"];
+			$a = $a."\n";
+			
+			$a = $a."Email: ";
+			$a = $a.$_POST["email"];
+			$a = $a."\n";
+			
+			$a = $a."Mobile: ";
+			$a = $a.$_POST["mobile"];
+			$a = $a."\n";
+
+			$a = $a."Sex: ";
+			$a = $a.$_POST["sex"];
+			$a = $a."\n";
+
+			$a = $a."Address: ";
+			$a = $a.$_POST["address"];
+			$a = $a."\n";
+
+			$a = $a."Country: ";
+			$a = $a.$_POST["country"];
+			$a = $a."\n";
+
+			//echo $a;
+			//echo "lola";
+			// Write final string to file
+			file_put_contents("output.txt", $a);
+		}
+	?>
+		<form  method="post">
 			<div id="p2" style="display:none">
 			</div>
 			<div id="p3" style="display:none">
@@ -39,8 +76,8 @@
 			<input type="radio" name="sex" id="fsex" value="female"> Female
 			<br>
 		 	
-		 	<input type="button" onclick="p2Next()" value="Next">
 		 	<input type="button" onclick="p2Prev()" value="Prev">
+		 	<input type="button" onclick="p2Next()" value="Next">
 		 	<br>
 		 	</div>
 		 	<!--  ----------------------------------------------------------------- -->
@@ -60,8 +97,8 @@
 			</select>
 			<br>
 
-		 	<input type="button" onclick="p3Next()" value="Next">
 		 	<input type="button" onclick="p3Prev()" value="Prev">
+		 	<input type="button" onclick="p3Next()" value="Next">
 		 	<br>
 		 	
 		 	</div>
@@ -71,6 +108,7 @@
 	  		<br><br>
 	  		<input type="checkbox" name="allcorrect" id="allcorrect" required >All data inserted are correct<br>
 	  		<input type="button" onclick="p4Prev()" value="Prev">
+	  		<br>
 	  		<input type="submit" value="Submit">
 			
 			</div>
