@@ -6,7 +6,8 @@
 
 	<body>
 	<?php
-		if(isset($_POST['country'])){
+		if(isset($_POST['name'])){
+			echo "<p style='color:red'>Wrote Details to output.txt</p>";
 			$a = "";
 			$a = $a."Name: ";
 			$a = $a.$_POST["name"];
@@ -56,7 +57,7 @@
 		 	
 		 	Username*: <input type="text" name="uName" id="uName" required><br>
 		 	
-		 	E-mail*:  <input type="email" name="email" id="email" required><br>
+		 	E-mail*: <input type="email" name="email" id="email" required><br>
 
 		 	Password*: <input type="password" name="password" id="password" required><br>
 		 	Confirm Password*: <input type="password" name="cPassword" id="cPassword" required><br>
@@ -228,7 +229,7 @@
 		/////////////////////////////////////////////////////////////////////////////////////////
 
 		function verifyMobile(){
-			regex = /\d{10}/; 
+			regex = /^\d{10}$/; 
 			if(!regex.test(mobile)) {
 		      alert("enter a valid 10 digit mobile no");
 		      document.getElementById("mobile").focus();
